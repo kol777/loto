@@ -4,7 +4,7 @@ def csvparse(file)
   config = CSV.read(file)
   list = []
   config.each do |c|
-    1.upto(6) do |i|
+    1.upto(c.length) do |i|
       if !c[i].nil?
         unless c[i].match(/N/)
           list.push(c[i])
@@ -19,8 +19,8 @@ def csvparse(file)
     counts[word] += 1
   end
 
-  sorted_hash = counts.sort_by {|_key, value| -value}.to_h
-  puts sorted_hash.keys.join(" ")
+  sorted_hash = counts.sort_by { |_key, value| -value }.to_h
+  puts sorted_hash.keys.join(' ')
 end
 
 puts('-----------5/40-----------')
